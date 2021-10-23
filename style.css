@@ -1,0 +1,99 @@
+/*Cascating Stylesheet (o último valor é que vale em caso de repetição*/
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%);
+
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  /*fonte smothing aceita apenas em navegadores webkit*/
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  /*visualização de elementos*/
+  display: grid;
+  /*como quero colocar meus elementos*/
+  place-items: center;
+}
+
+main {
+  background: url(images/background.svg);
+  width: 375px;
+  height: 812px;
+}
+
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  color: var(--grey);
+}
+
+.avatar {
+  /*para transformar pixel para rem só dividir por 16*/
+  width: 10rem;
+  margin: 11.5rem auto 0;
+
+  /*para ser o ponto de referencia do position absolute*/
+  position: relative;
+}
+
+/*vai procurar no avatar o span q tem lá dentro*/
+.avatar span {
+  /* absolute para ficar por cima o selo*/
+  position: absolute;
+  top: -15px;
+  /*para o selo voltar a ficar por cima (z é o eixo de profundidade)*/
+  z-index: 1;
+}
+
+/*sinal de > para pegar 1º nível de imagem da div*/
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  /*deixa a imagem no tamanho normal*/
+  object-fit: cover;
+  /*colocar a imagem no formato poligono pegou do site https://bennettfeely.com/clippy/*/
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+a {
+  margin-top: 0.25rem;
+  color: var(--grey);
+  text-decoration: none;
+
+  display: flex;
+  gap: 0.75rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 3rem;
+
+  list-style: none;
+  /*tirar o preenchimento interno*/
+  padding: 0;
+  /*o flex faz com que os elementos fiquei um ao lado do outro*/
+  display: flex;
+  /*colocar espaço entre os ícones*/
+  gap: 0.5rem;
+  justify-content: center;
+}
